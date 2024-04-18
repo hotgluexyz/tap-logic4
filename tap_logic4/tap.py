@@ -31,6 +31,17 @@ class TapLogic4(Tap):
 
     name = "tap-logic4"
 
+    def __init__(
+        self,
+        config=None,
+        catalog=None,
+        state=None,
+        parse_env_config=False,
+        validate_config=True,
+    ) -> None:
+        self.config_file = config[0]
+        super().__init__(config, catalog, state, parse_env_config, validate_config)
+
     config_jsonschema = th.PropertiesList(
         th.Property(
             "client_id",

@@ -2,11 +2,6 @@
 
 `tap-logic4` is a Singer tap for Logic4.
 
-## Installation
-```bash
-pipx install tap-logic4
-```
-
 ## Configuration
 
 ### Accepted Config Options
@@ -16,6 +11,19 @@ tap is available by running:
 
 ```bash
 tap-logic4 --about
+```
+
+### Config file example
+
+The config file is a json file and it needs to have client_id, client_secret and start_date:
+
+```json
+{
+  "client_id": "your_client_id",
+  "client_secret": "your_client_secret",
+  "start_date": "2000-08-14T21:11:43Z"
+}
+
 ```
 
 ### Configure using environment variables

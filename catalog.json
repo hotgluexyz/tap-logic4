@@ -1,0 +1,5824 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "buy_orders",
+      "replication_key": "CreatedAt",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "Id"
+      ],
+      "schema": {
+        "properties": {
+          "AmountOfRows": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "BranchId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "BuyOrderClosed": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "CreatedAt": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "CreditorCompanyName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "CreditorId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DatabaseAdministrationId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Remarks": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "buy_orders",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "AmountOfRows"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BranchId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BuyOrderClosed"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreatedAt"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreditorCompanyName"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreditorId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DatabaseAdministrationId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Remarks"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "Id"
+            ],
+            "valid-replication-keys": [
+              "CreatedAt"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "buy_orders_rows",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "BuyOrderRowId"
+      ],
+      "schema": {
+        "properties": {
+          "BuyOrderRowId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DebtorName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "OrderId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ProductCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "QtyToDeliver": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Price": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "CreditorProductCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductDesc1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductDesc2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "StandardAmountQTY": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "StandardAmountQTYUnitId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "BuyOrderId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ExpectedDeliveryDate": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "QtyToOrder": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderedOnDateByDistributor": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "OrderRowId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "buy_orders_rows",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "BuyOrderRowId"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DebtorName"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductCode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "QtyToDeliver"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Price"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Description"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreditorProductCode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductDesc1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductDesc2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "StandardAmountQTY"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "StandardAmountQTYUnitId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BuyOrderId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ExpectedDeliveryDate"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "QtyToOrder"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderedOnDateByDistributor"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderRowId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "BuyOrderRowId"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "invoices",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "Id"
+      ],
+      "schema": {
+        "properties": {
+          "DebtorId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Totals": {
+            "properties": {
+              "AmountEx": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "VATPercentage": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ShippingCost": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ShippingCostIncl": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Calc_TotalPayed": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "AmountIncl": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsPaid": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "PaymentMethod": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "MaxAmount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "SelectKey": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "OrderStatus": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "ShippingMethod": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ExportCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "OrderShipments": {
+            "items": {
+              "properties": {
+                "Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "DateTimeAdded": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "OrderId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "ShipperId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Barcode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "TrackTraceUrl": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "InvoiceBelongsToOrderNumber": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Payments": {
+            "items": {
+              "properties": {
+                "OrderId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "InvoiceId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "AmountIncl": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "BookingId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "MatchingLedgerId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "DateTime": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "LedgerCode": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "CostCentre": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "AccountAddress": {
+            "properties": {
+              "Type": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Province": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ContactName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CompanyName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "DebtorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CreditorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsMainContact": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "IsHidden": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "OwnContactNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "IsoCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "City": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Zipcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Street": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumberAddition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "TelephoneNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ZoneId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "DeliveryAddress": {
+            "properties": {
+              "Type": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Province": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ContactName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CompanyName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "DebtorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CreditorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsMainContact": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "IsHidden": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "OwnContactNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "IsoCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "City": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Zipcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Street": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumberAddition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "TelephoneNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ZoneId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "InvoiceAddress": {
+            "properties": {
+              "Type": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Province": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ContactName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CompanyName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "DebtorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CreditorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsMainContact": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "IsHidden": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "OwnContactNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "IsoCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "City": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Zipcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Street": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumberAddition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "TelephoneNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ZoneId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "CreationDate": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "BranchId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "UserId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "WebsiteDomainId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DeliveryOptionId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DeliveryDate": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "OrderShipmentFreeValues": {
+            "properties": {
+              "ShipperTypeId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Freevalue1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue3": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue4": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue5": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "Notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue4": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue5": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue6": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue7": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue8": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "OrderType1Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType2Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType3Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType4Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType5Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType6Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType7Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType8Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderRows": {
+            "items": {
+              "properties": {
+                "SerialNumbers": {
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ]
+                },
+                "ExpectedNextQtyOnDelivery": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "DiscountPercent": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "QtyReserved": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "InclPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "InternalNotes": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "IsAssemblyChild": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "Description2": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ProductId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Qty": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "BuyPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "GrossPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "NettPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "QtyDeliverd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "QtyDeliverd_NotInvoiced": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "ProductCode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ProductBarcode1": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "VATPercentage": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Notes": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "DebtorId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "OrderId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "WarehouseId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Commission": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "DeliveryOptionId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "VatCodeId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "VatCodeIdOverrule": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "FreeValue1": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue2": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue3": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue4": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue5": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ExpectedNextDelivery": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ExternalValue": {
+                  "properties": {
+                    "TypeId": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "Value": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "AgreedDeliveryDate": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "Type1Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type2Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type3Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type4Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type5Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "invoices",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "DebtorId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Totals"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "PaymentMethod"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderStatus"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ShippingMethod"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderShipments"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "InvoiceBelongsToOrderNumber"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Payments"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CostCentre"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "AccountAddress"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryAddress"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "InvoiceAddress"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreationDate"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Description"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Reference"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BranchId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "UserId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "WebsiteDomainId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryOptionId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryDate"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderShipmentFreeValues"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Notes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue4"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue5"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue6"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue7"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue8"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType1Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType2Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType3Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType4Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType5Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType6Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType7Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType8Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderRows"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "Id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "order_rows",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "Id"
+      ],
+      "schema": {
+        "properties": {
+          "SerialNumbers": {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "ExpectedNextQtyOnDelivery": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DiscountPercent": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "QtyReserved": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "InclPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "InternalNotes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "IsAssemblyChild": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Description2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Qty": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "BuyPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GrossPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NettPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "QtyDeliverd": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "QtyDeliverd_NotInvoiced": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ProductCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductBarcode1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "VATPercentage": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "DebtorId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "WarehouseId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Commission": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "DeliveryOptionId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "VatCodeId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "VatCodeIdOverrule": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "FreeValue1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue4": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue5": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ExpectedNextDelivery": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ExternalValue": {
+            "properties": {
+              "TypeId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "AgreedDeliveryDate": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Type1Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Type2Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Type3Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Type4Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Type5Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "order_rows",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "SerialNumbers"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ExpectedNextQtyOnDelivery"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DiscountPercent"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "QtyReserved"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "InclPrice"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "InternalNotes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "IsAssemblyChild"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Description"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Description2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Qty"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BuyPrice"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "GrossPrice"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "NettPrice"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "QtyDeliverd"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "QtyDeliverd_NotInvoiced"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductCode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductBarcode1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "VATPercentage"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Notes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DebtorId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "WarehouseId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Commission"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryOptionId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "VatCodeId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "VatCodeIdOverrule"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue4"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue5"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ExpectedNextDelivery"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ExternalValue"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "AgreedDeliveryDate"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Type1Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Type2Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Type3Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Type4Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Type5Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "Id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "orders",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "Id"
+      ],
+      "schema": {
+        "properties": {
+          "DebtorId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Totals": {
+            "properties": {
+              "AmountEx": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "VATPercentage": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ShippingCost": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ShippingCostIncl": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Calc_TotalPayed": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "AmountIncl": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsPaid": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "PaymentMethod": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "MaxAmount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "SelectKey": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "OrderStatus": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "ShippingMethod": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ExportCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "OrderShipments": {
+            "items": {
+              "properties": {
+                "Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "DateTimeAdded": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "OrderId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "ShipperId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Barcode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "TrackTraceUrl": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "InvoiceBelongsToOrderNumber": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Payments": {
+            "items": {
+              "properties": {
+                "OrderId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "InvoiceId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "AmountIncl": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "BookingId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "MatchingLedgerId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "DateTime": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "LedgerCode": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "CostCentre": {
+            "properties": {
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "AccountAddress": {
+            "properties": {
+              "Type": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Province": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ContactName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CompanyName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "DebtorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CreditorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsMainContact": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "IsHidden": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "OwnContactNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "IsoCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "City": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Zipcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Street": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumberAddition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "TelephoneNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ZoneId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "DeliveryAddress": {
+            "properties": {
+              "Type": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Province": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ContactName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CompanyName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "DebtorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CreditorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsMainContact": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "IsHidden": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "OwnContactNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "IsoCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "City": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Zipcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Street": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumberAddition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "TelephoneNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ZoneId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "InvoiceAddress": {
+            "properties": {
+              "Type": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Province": {
+                "properties": {
+                  "Id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "Email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ContactName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CompanyName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Address2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "DebtorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CreditorId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "IsMainContact": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "IsHidden": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "OwnContactNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "IsoCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "City": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Zipcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Street": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "HouseNumberAddition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "TelephoneNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CountryId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ZoneId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "CreationDate": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "BranchId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "UserId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "WebsiteDomainId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DeliveryOptionId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "DeliveryDate": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "OrderShipmentFreeValues": {
+            "properties": {
+              "ShipperTypeId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "Freevalue1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue3": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue4": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Freevalue5": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "Notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue4": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue5": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue6": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue7": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValue8": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "OrderType1Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType2Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType3Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType4Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType5Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType6Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType7Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderType8Id": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OrderRows": {
+            "items": {
+              "properties": {
+                "SerialNumbers": {
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ]
+                },
+                "ExpectedNextQtyOnDelivery": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "DiscountPercent": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "QtyReserved": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "InclPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "InternalNotes": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "IsAssemblyChild": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "Description2": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ProductId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Qty": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "BuyPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "GrossPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "NettPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "QtyDeliverd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "QtyDeliverd_NotInvoiced": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "ProductCode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ProductBarcode1": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "VATPercentage": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Notes": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "DebtorId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "OrderId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "WarehouseId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Commission": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "DeliveryOptionId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "VatCodeId": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "VatCodeIdOverrule": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "FreeValue1": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue2": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue3": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue4": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "FreeValue5": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ExpectedNextDelivery": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ExternalValue": {
+                  "properties": {
+                    "TypeId": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "Value": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "AgreedDeliveryDate": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "Type1Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type2Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type3Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type4Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Type5Id": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "orders",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "DebtorId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Totals"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "PaymentMethod"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderStatus"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ShippingMethod"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderShipments"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "InvoiceBelongsToOrderNumber"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Payments"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CostCentre"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "AccountAddress"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryAddress"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "InvoiceAddress"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreationDate"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Description"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Reference"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BranchId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "UserId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "WebsiteDomainId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryOptionId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DeliveryDate"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderShipmentFreeValues"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Notes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue4"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue5"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue6"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue7"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValue8"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType1Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType2Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType3Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType4Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType5Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType6Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType7Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderType8Id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "OrderRows"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "Id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "products",
+      "replication_key": "DateTimeLastChanged",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "ProductId"
+      ],
+      "schema": {
+        "properties": {
+          "ProductId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SubUnit_ParentId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductName1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductName2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductInfo": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "StatusId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Statusname": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "BrandId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Brandname": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Imagename1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ImageUrl1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Imagename2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ImageUrl2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Imagename3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ImageUrl3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "UnitId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "MinSaleAmount": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "MinSaleAmountWebshop": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "MinSaleBuyAmountDropShipment": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SaleCountIncrement": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "SaleCountIncrementWebshop": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "SaleCountIncrementDropShipment": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "MinBuyAmount": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "VatPercent": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "VatCodeId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "SellPriceGross": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Weight": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Volume": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Offer": {
+            "properties": {
+              "StartDate": {
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "EndDate": {
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "FromPrice": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ToPrice": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "OfferGroupId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "ProductId": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "SellPriceAdvice": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "BuyPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ProductGroupId1": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "BuyCountIncrement": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SellPriceLowestForWebshop": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ExcludePriceFromPricelistCalculations": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "AdditionalBuyPriceAmount": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "AdditionalBuyPricePercentage": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "IsComposedProduct": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "IsAssemblyProduct": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "ComposedProductSetChildSellPricesToZero": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "ComposedProductSetSellPriceToZero": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "FreeStock": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ExternalStockActiveSupplier": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "CreditorDiscountGroupId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "DateTimeLastChanged": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "DateTimeAdded": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "BarCode1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FreeValues": {
+            "items": {
+              "properties": {
+                "Key": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "Value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "Sorting": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "NextDelivery": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ShiftPrices": {
+            "items": {
+              "properties": {
+                "Qty": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "BuyPrice": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Margin": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "SellPriceExcl": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "SellPriceGrossExcl": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "Description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "DiscountType": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "ProductGroups": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Barcode2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "BarcodeExtraList": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "SystemBarcode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductGroup1ProductGroupTypeId": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "WareHouses": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "MinimalStock": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PCSinInsidePackage": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PCSinOutsidePackage": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ProductType1": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductType2": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductType3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductType4": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductType5": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "StandardAmount": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "VendorCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductTemplateId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ProductTemplateName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "products",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductId"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SubUnit_ParentId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductCode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductName1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductName2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductInfo"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "StatusId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Statusname"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BrandId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Brandname"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Imagename1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ImageUrl1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Imagename2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ImageUrl2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Imagename3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ImageUrl3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Unit"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "UnitId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "MinSaleAmount"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "MinSaleAmountWebshop"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "MinSaleBuyAmountDropShipment"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SaleCountIncrement"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SaleCountIncrementWebshop"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SaleCountIncrementDropShipment"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "MinBuyAmount"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "VatPercent"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "VatCodeId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SellPriceGross"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Weight"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Volume"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Offer"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SellPriceAdvice"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BuyPrice"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductGroupId1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BuyCountIncrement"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SellPriceLowestForWebshop"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ExcludePriceFromPricelistCalculations"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "AdditionalBuyPriceAmount"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "AdditionalBuyPricePercentage"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "IsComposedProduct"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "IsAssemblyProduct"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ComposedProductSetChildSellPricesToZero"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ComposedProductSetSellPriceToZero"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeStock"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ExternalStockActiveSupplier"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "CreditorDiscountGroupId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DateTimeLastChanged"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "DateTimeAdded"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BarCode1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeValues"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Sorting"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "NextDelivery"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ShiftPrices"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductGroups"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Barcode2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "BarcodeExtraList"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "SystemBarcode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductGroup1ProductGroupTypeId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "WareHouses"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "MinimalStock"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "PCSinInsidePackage"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "PCSinOutsidePackage"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductType1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductType2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductType3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductType4"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductType5"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "StandardAmount"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "VendorCode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductTemplateId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductTemplateName"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "ProductId"
+            ],
+            "valid-replication-keys": [
+              "DateTimeLastChanged"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "stocks",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "ProductId"
+      ],
+      "schema": {
+        "properties": {
+          "ProductCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "WarehouseId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "QtyReserved": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "FreeStock": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ProductId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Qty": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "stream": "stocks",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductCode"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "WarehouseId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "QtyReserved"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "FreeStock"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ProductId"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "Qty"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "ProductId"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -74,12 +74,12 @@ class ProductsStream(Logic4Stream):
         th.Property("MinSaleAmount", th.NumberType),
         th.Property("MinSaleAmountWebshop", th.StringType),
         th.Property("MinSaleBuyAmountDropShipment", th.NumberType),
-        th.Property("SaleCountIncrement", th.StringType),
-        th.Property("SaleCountIncrementWebshop", th.StringType),
+        th.Property("SaleCountIncrement", th.NumberType),
+        th.Property("SaleCountIncrementWebshop", th.NumberType),
         th.Property("SaleCountIncrementDropShipment", th.StringType),
         th.Property("MinBuyAmount", th.NumberType),
         th.Property("VatPercent", th.NumberType),
-        th.Property("VatCodeId", th.StringType),
+        th.Property("VatCodeId", th.IntegerType),
         th.Property("SellPriceGross", th.NumberType),
         th.Property("Weight", th.NumberType),
         th.Property("Volume", th.NumberType),
@@ -107,7 +107,7 @@ class ProductsStream(Logic4Stream):
         th.Property("ComposedProductSetChildSellPricesToZero", th.BooleanType),
         th.Property("ComposedProductSetSellPriceToZero", th.BooleanType),
         th.Property("FreeStock", th.NumberType),
-        th.Property("ExternalStockActiveSupplier", th.StringType),
+        th.Property("ExternalStockActiveSupplier", th.NumberType),
         th.Property("CreditorDiscountGroupId", th.StringType),
         th.Property("DateTimeLastChanged", th.DateTimeType),
         th.Property("DateTimeAdded", th.DateTimeType),
@@ -121,7 +121,7 @@ class ProductsStream(Logic4Stream):
                 )
             ),
         ),
-        th.Property("Sorting", th.StringType),
+        th.Property("Sorting", th.NumberType),
         th.Property("NextDelivery", th.StringType),
         th.Property(
             "ShiftPrices",
@@ -153,7 +153,7 @@ class ProductsStream(Logic4Stream):
         th.Property("ProductType5", th.StringType),
         th.Property("StandardAmount", th.StringType),
         th.Property("VendorCode", th.StringType),
-        th.Property("ProductTemplateId", th.StringType),
+        th.Property("ProductTemplateId", th.IntegerType),
         th.Property("ProductTemplateName", th.StringType),
     ).to_dict()
 
@@ -366,6 +366,7 @@ class OrdersStream(OrdersBaseStream):
     name = "orders"
     path = "/v1.2/Orders/GetOrders"
     primary_keys = ["Id"]
+    page_size = 1000
 
     def get_child_context(self, record, context) -> dict:
         return {"OrderId": record["Id"]}

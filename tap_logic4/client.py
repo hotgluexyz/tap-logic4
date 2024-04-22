@@ -22,6 +22,7 @@ class Logic4Stream(RESTStream):
     next_page_token_jsonpath = "$.next_page"
     rep_key_field = None
     rest_method = "POST"
+    page_size = 10000
 
     @property
     @cached
@@ -70,7 +71,7 @@ class Logic4Stream(RESTStream):
         )
         now = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         payload = {}
-        payload["TakeRecords"] = 10000
+        payload["TakeRecords"] = self.page_size
         if start_date and self.replication_key and self.rep_key_field:
             payload[f"{self.rep_key_field}From"] = start_date
             payload[f"{self.rep_key_field}To"] = now

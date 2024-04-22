@@ -366,6 +366,7 @@ class OrdersStream(OrdersBaseStream):
     name = "orders"
     path = "/v1.2/Orders/GetOrders"
     primary_keys = ["Id"]
+    page_size = 1000
 
     def get_child_context(self, record, context) -> dict:
         return {"OrderId": record["Id"]}

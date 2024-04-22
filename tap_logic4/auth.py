@@ -88,7 +88,7 @@ class Logic4Authenticator(OAuthAuthenticator, metaclass=SingletonMeta):
             self.logger.info("OAuth authorization attempt was successful.")
         except Exception as ex:
             raise RuntimeError(
-                f"Failed OAuth login, response was '{token_response.text()}'. {ex}"
+                f"Failed OAuth login, response was '{token_response.text}'. {ex}"
             )
         token_json = token_response.json()
         # Log the refresh_token

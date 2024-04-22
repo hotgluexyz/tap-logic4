@@ -52,11 +52,16 @@ class Logic4Authenticator(OAuthAuthenticator, metaclass=SingletonMeta):
     @property
     def oauth_request_body(self) -> dict:
         """Define the OAuth request body for the Logic4 API."""
+        # build scope
+        scope = self.config.get('scope', "api administration.ADMINISTRATION")
+        if not scope.startswith("api"):
+            scope = f"api {scope}"
+
         return {
             "grant_type": "client_credentials",
-            "client_id": self.config["client_id"],
-            "client_secret": self.config["client_secret"],
-            "scope": "api administration.1",
+            "client_id": f"{self.config['public_key']} {self.config['company_key']} {self.config['username']}",
+            "client_secret": f"{self.config['secret_key']} {self.config['password']}",
+            "scope": scope,
         }
 
     @classmethod
@@ -76,17 +81,12 @@ class Logic4Authenticator(OAuthAuthenticator, metaclass=SingletonMeta):
         token_response = requests.post(
             self._auth_endpoint,
             data=self.oauth_request_body,
-            headers=headers,
-            auth=(
-                self._tap._config.get("client_id"),
-                self._tap._config.get("client_secret"),
-            ),
+            headers=headers
         )
         try:
             token_response.raise_for_status()
             self.logger.info("OAuth authorization attempt was successful.")
         except Exception as ex:
-            self.state.update({"auth_error_response": token_response.text})
             raise RuntimeError(
                 f"Failed OAuth login, response was '{token_response.text()}'. {ex}"
             )

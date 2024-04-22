@@ -44,14 +44,37 @@ class TapLogic4(Tap):
 
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "client_id",
+            "public_key",
             th.StringType,
             required=True,
         ),
         th.Property(
-            "client_secret",
+            "company_key",
             th.StringType,
             required=True,
+        ),
+        th.Property(
+            "username",
+            th.StringType,
+            required=True,
+        ),
+        th.Property(
+            "secret_key",
+            th.StringType,
+            required=True,
+        ),
+        th.Property(
+            "password",
+            th.StringType,
+            required=True,
+        ),
+        th.Property(
+            "scope",
+            th.StringType,
+        ),
+        th.Property(
+            "start_date",
+            th.DateTimeType,
         ),
     ).to_dict()
 

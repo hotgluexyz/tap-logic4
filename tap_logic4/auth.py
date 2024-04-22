@@ -53,7 +53,7 @@ class Logic4Authenticator(OAuthAuthenticator, metaclass=SingletonMeta):
     def oauth_request_body(self) -> dict:
         """Define the OAuth request body for the Logic4 API."""
         # build scope
-        scope = self.config.get('scope', "api administration.ADMINISTRATION")
+        scope = self.config.get('scope', "api administration.1")
         if not scope.startswith("api"):
             scope = f"api {scope}"
 

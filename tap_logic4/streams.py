@@ -367,6 +367,8 @@ class OrdersStream(OrdersBaseStream):
     path = "/v1.2/Orders/GetOrders"
     primary_keys = ["Id"]
 
+    def get_child_context(self, record, context) -> dict:
+        return {"OrderId": record["Id"]}
 
 class OrderRowsStream(Logic4Stream):
     """Define custom stream."""
@@ -425,6 +427,13 @@ class OrderRowsStream(Logic4Stream):
         th.Property("Type5Id", th.NumberType),
     ).to_dict()
 
+    def prepare_request_payload(self, context, next_page_token):
+        payload = super().prepare_request_payload(context, next_page_token)
+        payload["OrderId"] = context["OrderId"]
+        return payload
+    
+    def get_next_page_token(self, response, previous_token):
+        return None
 
 class InvoicesStream(OrdersBaseStream):
     """Define custom stream."""
@@ -459,6 +468,9 @@ class BuyOrdersStream(Logic4Stream):
         th.Property("FreeValue3", th.StringType),
     ).to_dict()
 
+    def get_child_context(self, record, context) -> dict:
+        return {"OrderId": record["Id"]}
+
 
 class BuyOrdersRowsStream(Logic4Stream):
     """Define custom stream."""
@@ -488,3 +500,9 @@ class BuyOrdersRowsStream(Logic4Stream):
         th.Property("OrderedOnDateByDistributor", th.DateTimeType),
         th.Property("OrderRowId", th.NumberType),
     ).to_dict()
+
+    def prepare_request_payload(self, context, next_page_token):
+        return context["OrderId"]
+    
+    def get_next_page_token(self, response, previous_token):
+        return None

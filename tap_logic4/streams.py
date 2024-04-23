@@ -42,6 +42,10 @@ address_type = th.ObjectType(
     th.Property("ZoneId", th.NumberType),
 )
 
+product_type = th.ObjectType(
+    th.Property("Id", th.IntegerType),
+    th.Property("Value", th.StringType),
+)
 
 class ProductsStream(Logic4Stream):
     """Define custom stream."""
@@ -54,14 +58,14 @@ class ProductsStream(Logic4Stream):
 
     schema = th.PropertiesList(
         th.Property("ProductId", th.IntegerType),
-        th.Property("SubUnit_ParentId", th.StringType),
+        th.Property("SubUnit_ParentId", th.IntegerType),
         th.Property("ProductCode", th.StringType),
         th.Property("ProductName1", th.StringType),
         th.Property("ProductName2", th.StringType),
         th.Property("ProductInfo", th.StringType),
-        th.Property("StatusId", th.NumberType),
+        th.Property("StatusId", th.IntegerType),
         th.Property("Statusname", th.StringType),
-        th.Property("BrandId", th.NumberType),
+        th.Property("BrandId", th.IntegerType),
         th.Property("Brandname", th.StringType),
         th.Property("Imagename1", th.StringType),
         th.Property("ImageUrl1", th.StringType),
@@ -70,13 +74,13 @@ class ProductsStream(Logic4Stream):
         th.Property("Imagename3", th.StringType),
         th.Property("ImageUrl3", th.StringType),
         th.Property("Unit", th.StringType),
-        th.Property("UnitId", th.NumberType),
+        th.Property("UnitId", th.IntegerType),
         th.Property("MinSaleAmount", th.NumberType),
-        th.Property("MinSaleAmountWebshop", th.StringType),
+        th.Property("MinSaleAmountWebshop", th.NumberType),
         th.Property("MinSaleBuyAmountDropShipment", th.NumberType),
         th.Property("SaleCountIncrement", th.NumberType),
         th.Property("SaleCountIncrementWebshop", th.NumberType),
-        th.Property("SaleCountIncrementDropShipment", th.StringType),
+        th.Property("SaleCountIncrementDropShipment", th.NumberType),
         th.Property("MinBuyAmount", th.NumberType),
         th.Property("VatPercent", th.NumberType),
         th.Property("VatCodeId", th.IntegerType),
@@ -91,14 +95,14 @@ class ProductsStream(Logic4Stream):
                 th.Property("FromPrice", th.NumberType),
                 th.Property("ToPrice", th.NumberType),
                 th.Property("OfferGroupId", th.NumberType),
-                th.Property("ProductId", th.NumberType),
+                th.Property("ProductId", th.IntegerType),
             ),
         ),
-        th.Property("SellPriceAdvice", th.StringType),
+        th.Property("SellPriceAdvice", th.NumberType),
         th.Property("BuyPrice", th.NumberType),
-        th.Property("ProductGroupId1", th.NumberType),
+        th.Property("ProductGroupId1", th.IntegerType),
         th.Property("BuyCountIncrement", th.NumberType),
-        th.Property("SellPriceLowestForWebshop", th.StringType),
+        th.Property("SellPriceLowestForWebshop", th.NumberType),
         th.Property("ExcludePriceFromPricelistCalculations", th.BooleanType),
         th.Property("AdditionalBuyPriceAmount", th.NumberType),
         th.Property("AdditionalBuyPricePercentage", th.NumberType),
@@ -122,7 +126,7 @@ class ProductsStream(Logic4Stream):
             ),
         ),
         th.Property("Sorting", th.NumberType),
-        th.Property("NextDelivery", th.StringType),
+        th.Property("NextDelivery", th.DateTimeType),
         th.Property(
             "ShiftPrices",
             th.ArrayType(
@@ -137,21 +141,50 @@ class ProductsStream(Logic4Stream):
                 )
             ),
         ),
-        th.Property("ProductGroups", th.StringType),
+        th.Property("ProductGroups", th.ArrayType(
+                th.ObjectType(
+                    th.Property("Id", th.IntegerType),
+                    th.Property("Name", th.StringType),
+                    th.Property("ParentProductGroupId", th.IntegerType),
+                    th.Property("Shortname", th.StringType),
+                    th.Property("PictureUrl", th.StringType),
+                    th.Property("SortValue", th.NumberType),
+                    th.Property("PictureName", th.StringType),
+                    th.Property("ProductGroupTypeId", th.IntegerType),
+                    th.Property("IsVisibleOnWebshop", th.BooleanType),
+                    th.Property("DepthLevel", th.IntegerType),
+                    th.Property("ShowUnitOnWebsite", th.BooleanType),
+                )
+            ),
+        ),
         th.Property("Barcode2", th.StringType),
-        th.Property("BarcodeExtraList", th.StringType),
+        th.Property("BarcodeExtraList", th.ArrayType(
+            th.ObjectType(
+                    th.Property("Barcode", th.StringType),
+                    th.Property("Qty", th.NumberType),
+                )
+            )
+        ),
         th.Property("SystemBarcode", th.StringType),
         th.Property("ProductGroup1ProductGroupTypeId", th.NumberType),
-        th.Property("WareHouses", th.StringType),
+        th.Property("WareHouses", th.ArrayType(
+            th.ObjectType(
+                    th.Property("WarehouseId", th.IntegerType),
+                    th.Property("WarehouseName", th.StringType),
+                    th.Property("MinimalStock", th.NumberType),
+                    th.Property("MaxStock", th.NumberType),
+                    th.Property("DefaultStockLocationId", th.IntegerType),
+                )
+            )),
         th.Property("MinimalStock", th.NumberType),
         th.Property("PCSinInsidePackage", th.NumberType),
         th.Property("PCSinOutsidePackage", th.NumberType),
-        th.Property("ProductType1", th.StringType),
-        th.Property("ProductType2", th.StringType),
-        th.Property("ProductType3", th.StringType),
-        th.Property("ProductType4", th.StringType),
-        th.Property("ProductType5", th.StringType),
-        th.Property("StandardAmount", th.StringType),
+        th.Property("ProductType1", product_type),
+        th.Property("ProductType2", product_type),
+        th.Property("ProductType3", product_type),
+        th.Property("ProductType4", product_type),
+        th.Property("ProductType5", product_type),
+        th.Property("StandardAmount", th.NumberType),
         th.Property("VendorCode", th.StringType),
         th.Property("ProductTemplateId", th.IntegerType),
         th.Property("ProductTemplateName", th.StringType),

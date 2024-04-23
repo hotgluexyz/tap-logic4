@@ -57,20 +57,24 @@ class Logic4Stream(RESTStream):
         return params
 
     def get_starting_time(self, context):
+        #NOTE: logic4 uses Amsterdam timezone
         start_date = self.config.get("start_date")
         if start_date:
             start_date = parse(self.config.get("start_date"))
         rep_key = self.get_starting_timestamp(context)
-        return rep_key or start_date
+        date = rep_key or start_date
+        date = date.astimezone(pytz.timezone('Europe/Amsterdam'))
+        return date
 
     def prepare_request_payload(self, context, next_page_token):
+        #NOTE: Logic4 uses Amsterdam timezone
         start_date = self.get_starting_time(context)
         if self.stream_state.get("replication_key_value"):
             start_date = start_date + timedelta(seconds=1)
         start_date = (
             start_date.strftime("%Y-%m-%dT%H:%M:%SZ") if start_date else start_date
         )
-        now = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam')).strftime("%Y-%m-%dT%H:%M:%S")
         payload = {}
         payload["TakeRecords"] = self.page_size
         if start_date and self.replication_key and self.rep_key_field:

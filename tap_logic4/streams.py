@@ -402,8 +402,8 @@ class OrdersBaseStream(Logic4Stream):
 
     def post_process(self, row, context):
         row = super().post_process(row, context)
-        #field created with current datetime to filter by rep_key
-        now = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")
+        #field created with current Amsterdam datetime to filter by rep_key
+        now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam')).strftime("%Y-%m-%dT%H:%M:%S.%f")
         row["ChangedAt"] = now
         return row
 

@@ -8,14 +8,14 @@ address_type = th.ObjectType(
     th.Property(
         "Type",
         th.ObjectType(
-            th.Property("Id", th.NumberType),
+            th.Property("Id", th.IntegerType),
             th.Property("Name", th.StringType),
         ),
     ),
     th.Property(
         "Province",
         th.ObjectType(
-            th.Property("Id", th.NumberType),
+            th.Property("Id", th.IntegerType),
             th.Property("Name", th.StringType),
         ),
     ),
@@ -24,9 +24,9 @@ address_type = th.ObjectType(
     th.Property("CompanyName", th.StringType),
     th.Property("Address1", th.StringType),
     th.Property("Address2", th.StringType),
-    th.Property("Id", th.NumberType),
-    th.Property("DebtorId", th.NumberType),
-    th.Property("CreditorId", th.NumberType),
+    th.Property("Id", th.IntegerType),
+    th.Property("DebtorId", th.IntegerType),
+    th.Property("CreditorId", th.IntegerType),
     th.Property("IsMainContact", th.BooleanType),
     th.Property("IsHidden", th.BooleanType),
     th.Property("OwnContactNumber", th.StringType),
@@ -38,8 +38,8 @@ address_type = th.ObjectType(
     th.Property("HouseNumber", th.StringType),
     th.Property("HouseNumberAddition", th.StringType),
     th.Property("TelephoneNumber", th.StringType),
-    th.Property("CountryId", th.NumberType),
-    th.Property("ZoneId", th.NumberType),
+    th.Property("CountryId", th.IntegerType),
+    th.Property("ZoneId", th.IntegerType),
 )
 
 product_type = th.ObjectType(
@@ -94,7 +94,7 @@ class ProductsStream(Logic4Stream):
                 th.Property("EndDate", th.DateTimeType),
                 th.Property("FromPrice", th.NumberType),
                 th.Property("ToPrice", th.NumberType),
-                th.Property("OfferGroupId", th.NumberType),
+                th.Property("OfferGroupId", th.IntegerType),
                 th.Property("ProductId", th.IntegerType),
             ),
         ),
@@ -112,7 +112,7 @@ class ProductsStream(Logic4Stream):
         th.Property("ComposedProductSetSellPriceToZero", th.BooleanType),
         th.Property("FreeStock", th.NumberType),
         th.Property("ExternalStockActiveSupplier", th.NumberType),
-        th.Property("CreditorDiscountGroupId", th.StringType),
+        th.Property("CreditorDiscountGroupId", th.IntegerType),
         th.Property("DateTimeLastChanged", th.DateTimeType),
         th.Property("DateTimeAdded", th.DateTimeType),
         th.Property("BarCode1", th.StringType),
@@ -166,7 +166,7 @@ class ProductsStream(Logic4Stream):
             )
         ),
         th.Property("SystemBarcode", th.StringType),
-        th.Property("ProductGroup1ProductGroupTypeId", th.NumberType),
+        th.Property("ProductGroup1ProductGroupTypeId", th.IntegerType),
         th.Property("WareHouses", th.ArrayType(
             th.ObjectType(
                     th.Property("WarehouseId", th.IntegerType),
@@ -222,8 +222,8 @@ class OrdersBaseStream(Logic4Stream):
 
     name = "orders_base"
     schema = th.PropertiesList(
-        th.Property("DebtorId", th.NumberType),
-        th.Property("Id", th.NumberType),
+        th.Property("DebtorId", th.IntegerType),
+        th.Property("Id", th.IntegerType),
         th.Property(
             "Totals",
             th.ObjectType(
@@ -239,7 +239,7 @@ class OrdersBaseStream(Logic4Stream):
         th.Property(
             "PaymentMethod",
             th.ObjectType(
-                th.Property("Id", th.NumberType),
+                th.Property("Id", th.IntegerType),
                 th.Property("Description", th.StringType),
                 th.Property("MaxAmount", th.NumberType),
                 th.Property("SelectKey", th.StringType),
@@ -248,14 +248,14 @@ class OrdersBaseStream(Logic4Stream):
         th.Property(
             "OrderStatus",
             th.ObjectType(
-                th.Property("Id", th.NumberType),
+                th.Property("Id", th.IntegerType),
                 th.Property("Value", th.StringType),
             ),
         ),
         th.Property(
             "ShippingMethod",
             th.ObjectType(
-                th.Property("Id", th.NumberType),
+                th.Property("Id", th.IntegerType),
                 th.Property("Name", th.StringType),
                 th.Property("ExportCode", th.StringType),
             ),
@@ -264,10 +264,10 @@ class OrdersBaseStream(Logic4Stream):
             "OrderShipments",
             th.ArrayType(
                 th.ObjectType(
-                    th.Property("Id", th.NumberType),
+                    th.Property("Id", th.IntegerType),
                     th.Property("DateTimeAdded", th.DateTimeType),
-                    th.Property("OrderId", th.NumberType),
-                    th.Property("ShipperId", th.NumberType),
+                    th.Property("OrderId", th.IntegerType),
+                    th.Property("ShipperId", th.IntegerType),
                     th.Property("Barcode", th.StringType),
                     th.Property("TrackTraceUrl", th.StringType),
                 )
@@ -278,12 +278,12 @@ class OrdersBaseStream(Logic4Stream):
             "Payments",
             th.ArrayType(
                 th.ObjectType(
-                    th.Property("OrderId", th.NumberType),
-                    th.Property("InvoiceId", th.NumberType),
+                    th.Property("OrderId", th.IntegerType),
+                    th.Property("InvoiceId", th.IntegerType),
                     th.Property("AmountIncl", th.NumberType),
                     th.Property("Description", th.StringType),
-                    th.Property("BookingId", th.NumberType),
-                    th.Property("MatchingLedgerId", th.NumberType),
+                    th.Property("BookingId", th.IntegerType),
+                    th.Property("MatchingLedgerId", th.IntegerType),
                     th.Property("DateTime", th.DateTimeType),
                     th.Property("LedgerCode", th.NumberType),
                 )
@@ -292,7 +292,7 @@ class OrdersBaseStream(Logic4Stream):
         th.Property(
             "CostCentre",
             th.ObjectType(
-                th.Property("Id", th.NumberType),
+                th.Property("Id", th.IntegerType),
                 th.Property("Code", th.StringType),
                 th.Property("Description", th.StringType),
             ),
@@ -303,15 +303,15 @@ class OrdersBaseStream(Logic4Stream):
         th.Property("CreationDate", th.DateTimeType),
         th.Property("Description", th.StringType),
         th.Property("Reference", th.StringType),
-        th.Property("BranchId", th.NumberType),
-        th.Property("UserId", th.NumberType),
-        th.Property("WebsiteDomainId", th.NumberType),
-        th.Property("DeliveryOptionId", th.NumberType),
+        th.Property("BranchId", th.IntegerType),
+        th.Property("UserId", th.IntegerType),
+        th.Property("WebsiteDomainId", th.IntegerType),
+        th.Property("DeliveryOptionId", th.IntegerType),
         th.Property("DeliveryDate", th.DateTimeType),
         th.Property(
             "OrderShipmentFreeValues",
             th.ObjectType(
-                th.Property("ShipperTypeId", th.NumberType),
+                th.Property("ShipperTypeId", th.IntegerType),
                 th.Property("Freevalue1", th.StringType),
                 th.Property("Freevalue2", th.StringType),
                 th.Property("Freevalue3", th.StringType),
@@ -328,14 +328,14 @@ class OrdersBaseStream(Logic4Stream):
         th.Property("FreeValue6", th.StringType),
         th.Property("FreeValue7", th.StringType),
         th.Property("FreeValue8", th.StringType),
-        th.Property("OrderType1Id", th.NumberType),
-        th.Property("OrderType2Id", th.NumberType),
-        th.Property("OrderType3Id", th.NumberType),
-        th.Property("OrderType4Id", th.NumberType),
-        th.Property("OrderType5Id", th.NumberType),
-        th.Property("OrderType6Id", th.NumberType),
-        th.Property("OrderType7Id", th.NumberType),
-        th.Property("OrderType8Id", th.NumberType),
+        th.Property("OrderType1Id", th.IntegerType),
+        th.Property("OrderType2Id", th.IntegerType),
+        th.Property("OrderType3Id", th.IntegerType),
+        th.Property("OrderType4Id", th.IntegerType),
+        th.Property("OrderType5Id", th.IntegerType),
+        th.Property("OrderType6Id", th.IntegerType),
+        th.Property("OrderType7Id", th.IntegerType),
+        th.Property("OrderType8Id", th.IntegerType),
         th.Property(
             "OrderRows",
             th.ArrayType(
@@ -347,10 +347,10 @@ class OrdersBaseStream(Logic4Stream):
                     th.Property("InclPrice", th.NumberType),
                     th.Property("InternalNotes", th.StringType),
                     th.Property("IsAssemblyChild", th.BooleanType),
-                    th.Property("Id", th.NumberType),
+                    th.Property("Id", th.IntegerType),
                     th.Property("Description", th.StringType),
                     th.Property("Description2", th.StringType),
-                    th.Property("ProductId", th.NumberType),
+                    th.Property("ProductId", th.IntegerType),
                     th.Property("Qty", th.NumberType),
                     th.Property("BuyPrice", th.NumberType),
                     th.Property("GrossPrice", th.NumberType),
@@ -361,12 +361,12 @@ class OrdersBaseStream(Logic4Stream):
                     th.Property("ProductBarcode1", th.StringType),
                     th.Property("VATPercentage", th.NumberType),
                     th.Property("Notes", th.StringType),
-                    th.Property("DebtorId", th.NumberType),
-                    th.Property("OrderId", th.NumberType),
-                    th.Property("WarehouseId", th.NumberType),
+                    th.Property("DebtorId", th.IntegerType),
+                    th.Property("OrderId", th.IntegerType),
+                    th.Property("WarehouseId", th.IntegerType),
                     th.Property("Commission", th.StringType),
-                    th.Property("DeliveryOptionId", th.NumberType),
-                    th.Property("VatCodeId", th.NumberType),
+                    th.Property("DeliveryOptionId", th.IntegerType),
+                    th.Property("VatCodeId", th.IntegerType),
                     th.Property("VatCodeIdOverrule", th.NumberType),
                     th.Property("FreeValue1", th.StringType),
                     th.Property("FreeValue2", th.StringType),
@@ -377,16 +377,16 @@ class OrdersBaseStream(Logic4Stream):
                     th.Property(
                         "ExternalValue",
                         th.ObjectType(
-                            th.Property("TypeId", th.NumberType),
+                            th.Property("TypeId", th.IntegerType),
                             th.Property("Value", th.StringType),
                         ),
                     ),
                     th.Property("AgreedDeliveryDate", th.DateTimeType),
-                    th.Property("Type1Id", th.NumberType),
-                    th.Property("Type2Id", th.NumberType),
-                    th.Property("Type3Id", th.NumberType),
-                    th.Property("Type4Id", th.NumberType),
-                    th.Property("Type5Id", th.NumberType),
+                    th.Property("Type1Id", th.IntegerType),
+                    th.Property("Type2Id", th.IntegerType),
+                    th.Property("Type3Id", th.IntegerType),
+                    th.Property("Type4Id", th.IntegerType),
+                    th.Property("Type5Id", th.IntegerType),
                 )
             ),
         ),
@@ -419,10 +419,10 @@ class OrderRowsStream(Logic4Stream):
         th.Property("InclPrice", th.NumberType),
         th.Property("InternalNotes", th.StringType),
         th.Property("IsAssemblyChild", th.BooleanType),
-        th.Property("Id", th.NumberType),
+        th.Property("Id", th.IntegerType),
         th.Property("Description", th.StringType),
         th.Property("Description2", th.StringType),
-        th.Property("ProductId", th.NumberType),
+        th.Property("ProductId", th.IntegerType),
         th.Property("Qty", th.NumberType),
         th.Property("BuyPrice", th.NumberType),
         th.Property("GrossPrice", th.NumberType),
@@ -433,12 +433,12 @@ class OrderRowsStream(Logic4Stream):
         th.Property("ProductBarcode1", th.StringType),
         th.Property("VATPercentage", th.NumberType),
         th.Property("Notes", th.StringType),
-        th.Property("DebtorId", th.NumberType),
-        th.Property("OrderId", th.NumberType),
+        th.Property("DebtorId", th.IntegerType),
+        th.Property("OrderId", th.IntegerType),
         th.Property("WarehouseId", th.NumberType),
         th.Property("Commission", th.StringType),
-        th.Property("DeliveryOptionId", th.NumberType),
-        th.Property("VatCodeId", th.NumberType),
+        th.Property("DeliveryOptionId", th.IntegerType),
+        th.Property("VatCodeId", th.IntegerType),
         th.Property("VatCodeIdOverrule", th.NumberType),
         th.Property("FreeValue1", th.StringType),
         th.Property("FreeValue2", th.StringType),
@@ -449,16 +449,16 @@ class OrderRowsStream(Logic4Stream):
         th.Property(
             "ExternalValue",
             th.ObjectType(
-                th.Property("TypeId", th.NumberType),
+                th.Property("TypeId", th.IntegerType),
                 th.Property("Value", th.StringType),
             ),
         ),
         th.Property("AgreedDeliveryDate", th.DateTimeType),
-        th.Property("Type1Id", th.NumberType),
-        th.Property("Type2Id", th.NumberType),
-        th.Property("Type3Id", th.NumberType),
-        th.Property("Type4Id", th.NumberType),
-        th.Property("Type5Id", th.NumberType),
+        th.Property("Type1Id", th.IntegerType),
+        th.Property("Type2Id", th.IntegerType),
+        th.Property("Type3Id", th.IntegerType),
+        th.Property("Type4Id", th.IntegerType),
+        th.Property("Type5Id", th.IntegerType),
     ).to_dict()
 
     def prepare_request_payload(self, context, next_page_token):
@@ -488,14 +488,14 @@ class BuyOrdersStream(Logic4Stream):
 
     schema = th.PropertiesList(
         th.Property("AmountOfRows", th.NumberType),
-        th.Property("BranchId", th.NumberType),
+        th.Property("BranchId", th.IntegerType),
         th.Property("BuyOrderClosed", th.BooleanType),
         th.Property("CreatedAt", th.DateTimeType),
         th.Property("CreditorCompanyName", th.StringType),
-        th.Property("CreditorId", th.NumberType),
-        th.Property("DatabaseAdministrationId", th.NumberType),
-        th.Property("Id", th.NumberType),
-        th.Property("OrderId", th.NumberType),
+        th.Property("CreditorId", th.IntegerType),
+        th.Property("DatabaseAdministrationId", th.IntegerType),
+        th.Property("Id", th.IntegerType),
+        th.Property("OrderId", th.IntegerType),
         th.Property("Remarks", th.StringType),
         th.Property("FreeValue1", th.StringType),
         th.Property("FreeValue2", th.StringType),
@@ -515,11 +515,11 @@ class BuyOrdersRowsStream(Logic4Stream):
     parent_stream_type = BuyOrdersStream
 
     schema = th.PropertiesList(
-        th.Property("BuyOrderRowId", th.NumberType),
+        th.Property("BuyOrderRowId", th.IntegerType),
         th.Property("DebtorName", th.StringType),
-        th.Property("OrderId", th.NumberType),
+        th.Property("OrderId", th.IntegerType),
         th.Property("ProductCode", th.StringType),
-        th.Property("ProductId", th.NumberType),
+        th.Property("ProductId", th.IntegerType),
         th.Property("QtyToDeliver", th.NumberType),
         th.Property("Price", th.NumberType),
         th.Property("Description", th.StringType),
@@ -527,12 +527,12 @@ class BuyOrdersRowsStream(Logic4Stream):
         th.Property("ProductDesc1", th.StringType),
         th.Property("ProductDesc2", th.StringType),
         th.Property("StandardAmountQTY", th.NumberType),
-        th.Property("StandardAmountQTYUnitId", th.NumberType),
-        th.Property("BuyOrderId", th.NumberType),
+        th.Property("StandardAmountQTYUnitId", th.IntegerType),
+        th.Property("BuyOrderId", th.IntegerType),
         th.Property("ExpectedDeliveryDate", th.DateTimeType),
         th.Property("QtyToOrder", th.NumberType),
         th.Property("OrderedOnDateByDistributor", th.DateTimeType),
-        th.Property("OrderRowId", th.NumberType),
+        th.Property("OrderRowId", th.IntegerType),
     ).to_dict()
 
     def prepare_request_payload(self, context, next_page_token):

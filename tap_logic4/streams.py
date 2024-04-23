@@ -225,7 +225,7 @@ class OrdersBaseStream(Logic4Stream):
 
     name = "orders_base"
     replication_key = "ChangedAt"
-    rep_key_field = "ChangedAfter"
+    rep_key_field = "LastActionFrom"
     from_to = False
 
     schema = th.PropertiesList(

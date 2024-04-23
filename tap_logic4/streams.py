@@ -1,8 +1,11 @@
 """Stream type classes for tap-logic4."""
 
+from typing import Optional
 from singer_sdk import typing as th
 
 from tap_logic4.client import Logic4Stream
+import datetime 
+import pytz
 
 address_type = th.ObjectType(
     th.Property(
@@ -221,9 +224,14 @@ class OrdersBaseStream(Logic4Stream):
     """Define custom stream."""
 
     name = "orders_base"
+    replication_key = "ChangedAt"
+    rep_key_field = "LastActionFrom"
+    from_to = False
+
     schema = th.PropertiesList(
         th.Property("DebtorId", th.IntegerType),
         th.Property("Id", th.IntegerType),
+        th.Property("ChangedAt", th.DateTimeType), #field created with current datetime to filter by rep_key
         th.Property(
             "Totals",
             th.ObjectType(
@@ -391,6 +399,13 @@ class OrdersBaseStream(Logic4Stream):
             ),
         ),
     ).to_dict()
+
+    def post_process(self, row, context):
+        row = super().post_process(row, context)
+        #field created with current datetime to filter by rep_key
+        now = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")
+        row["ChangedAt"] = now
+        return row
 
 
 class OrdersStream(OrdersBaseStream):

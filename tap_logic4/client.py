@@ -23,6 +23,7 @@ class Logic4Stream(RESTStream):
     rep_key_field = None
     rest_method = "POST"
     page_size = 10000
+    from_to = True
 
     @property
     @cached
@@ -73,8 +74,11 @@ class Logic4Stream(RESTStream):
         payload = {}
         payload["TakeRecords"] = self.page_size
         if start_date and self.replication_key and self.rep_key_field:
-            payload[f"{self.rep_key_field}From"] = start_date
-            payload[f"{self.rep_key_field}To"] = now
+            if self.from_to:
+                payload[f"{self.rep_key_field}From"] = start_date
+                payload[f"{self.rep_key_field}To"] = now
+            else:
+                payload[self.rep_key_field] = start_date
         if next_page_token:
             payload["SkipRecords"] = next_page_token
         return payload

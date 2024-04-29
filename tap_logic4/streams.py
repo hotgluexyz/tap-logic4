@@ -555,3 +555,22 @@ class BuyOrdersRowsStream(Logic4Stream):
     
     def get_next_page_token(self, response, previous_token):
         return None
+
+
+class SuppliersStream(Logic4Stream):
+    """Define custom stream."""
+
+    name = "suppliers"
+    path = "/v1.1/Relations/GetCreditors"
+    primary_keys = ["Id"]
+
+    schema = th.PropertiesList(
+        th.Property("CompanyName", th.StringType),
+        th.Property("EmailAddress", th.StringType),
+        th.Property("Faxnumber", th.StringType),
+        th.Property("FirstName", th.StringType),
+        th.Property("Id", th.IntegerType),
+        th.Property("LastName", th.StringType),
+        th.Property("MobileNumber", th.StringType),
+        th.Property("TelephoneNumber", th.StringType),
+    ).to_dict()

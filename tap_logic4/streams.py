@@ -498,7 +498,6 @@ class BuyOrdersStream(Logic4Stream):
     name = "buy_orders"
     path = "/v1.1/BuyOrders/GetBuyOrders"
     primary_keys = ["Id"]
-    replication_key = "CreatedAt"
     rep_key_field = "BuyOrderDate"
 
     schema = th.PropertiesList(
@@ -518,7 +517,18 @@ class BuyOrdersStream(Logic4Stream):
     ).to_dict()
 
     def get_child_context(self, record, context) -> dict:
-        return {"OrderId": record["Id"]}
+        BuyOrderIsClosed_GetRows = self.config.get("BuyOrderIsClosed_GetRows")
+        if BuyOrderIsClosed_GetRows == False:
+            # get only open buy orders rows
+            if record["BuyOrderClosed"] == False:
+                return {"OrderId": record["Id"]}
+            return None
+        else:
+            return {"OrderId": record["Id"]}
+    
+    def _sync_children(self, child_context: dict) -> None:
+        if child_context:
+            return super()._sync_children(child_context)
 
 
 class BuyOrdersRowsStream(Logic4Stream):

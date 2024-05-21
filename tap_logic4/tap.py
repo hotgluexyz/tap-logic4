@@ -13,7 +13,8 @@ from tap_logic4.streams import (
     OrdersStream,
     ProductsStream,
     StockStream,
-    SuppliersStream
+    SuppliersStream,
+    SupplierProductStream
 )
 
 STREAM_TYPES = [
@@ -24,7 +25,8 @@ STREAM_TYPES = [
     InvoicesStream,
     BuyOrdersStream,
     BuyOrdersRowsStream,
-    SuppliersStream
+    SuppliersStream,
+    SupplierProductStream   
 ]
 
 

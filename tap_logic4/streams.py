@@ -203,6 +203,36 @@ class ProductsStream(Logic4Stream):
             payload["IsVisibleInLogic4"] = IsVisibleInLogic4
         return payload
 
+    def get_child_context(self, record: dict, context) -> dict:
+        return {"ProductId": record["ProductId"]}
+
+class SupplierProductStream(Logic4Stream):
+    """Define custom stream."""
+
+    name = "supplier_products"
+    path = "/v1.1/Products/GetSuppliersForProduct"
+    primary_keys = ["CreditorProductCode"]
+    parent_stream_type = ProductsStream
+
+    schema = th.PropertiesList(
+        th.Property("ProductId", th.IntegerType),
+        th.Property("CreditorName", th.StringType),
+        th.Property("CreditorProductCode", th.StringType),
+        th.Property("IsActive", th.BooleanType),
+        th.Property("CreditorId", th.IntegerType),
+        th.Property("CreditorBuyPrices", th.ArrayType(
+            th.ObjectType(
+                th.Property("Key", th.IntegerType),
+                th.Property("Value", th.IntegerType),
+            )
+        )),      
+    ).to_dict()
+
+    def prepare_request_payload(self, context, next_page_token):
+        return context["ProductId"]
+    
+    def get_next_page_token(self, response, previous_token):
+        return None
 
 class StockStream(Logic4Stream):
     """Define custom stream."""

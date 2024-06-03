@@ -223,7 +223,7 @@ class SupplierProductStream(Logic4Stream):
         th.Property("CreditorBuyPrices", th.ArrayType(
             th.ObjectType(
                 th.Property("Key", th.IntegerType),
-                th.Property("Value", th.IntegerType),
+                th.Property("Value", th.NumberType),
             )
         )),      
     ).to_dict()

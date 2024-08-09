@@ -250,12 +250,12 @@ class StockStream(Logic4Stream):
     ).to_dict()
 
 
-class OrdersBaseStream(Logic4Stream):
+class TransactionBaseStream(Logic4Stream):
     """Define custom stream."""
 
-    name = "orders_base"
+    name = "transaction_base_stream"
     replication_key = "ChangedAt"
-    rep_key_field = "LastActionFrom"
+    rep_key_field = "ChangedAfter"
     from_to = False
 
     schema = th.PropertiesList(
@@ -438,14 +438,13 @@ class OrdersBaseStream(Logic4Stream):
         return row
 
 
-class OrdersStream(OrdersBaseStream):
+class OrdersStream(TransactionBaseStream):
     """Define custom stream."""
 
     name = "orders"
     path = "/v1.2/Orders/GetOrders"
     primary_keys = ["Id"]
     page_size = 1000
-    rep_key_field = "ChangedAfter"
 
     def get_child_context(self, record, context) -> dict:
         return {"OrderId": record["Id"]}
@@ -515,7 +514,7 @@ class OrderRowsStream(Logic4Stream):
     def get_next_page_token(self, response, previous_token):
         return None
 
-class InvoicesStream(OrdersBaseStream):
+class InvoicesStream(TransactionBaseStream):
     """Define custom stream."""
 
     name = "invoices"

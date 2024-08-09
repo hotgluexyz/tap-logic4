@@ -262,6 +262,7 @@ class OrdersBaseStream(Logic4Stream):
         th.Property("DebtorId", th.IntegerType),
         th.Property("Id", th.IntegerType),
         th.Property("ChangedAt", th.DateTimeType), #field created with current datetime to filter by rep_key
+        th.Property("ChangedAfter", th.DateTimeType), #field created with current datetime to filter by rep_key
         th.Property(
             "Totals",
             th.ObjectType(
@@ -445,9 +446,18 @@ class OrdersStream(OrdersBaseStream):
     path = "/v1.2/Orders/GetOrders"
     primary_keys = ["Id"]
     page_size = 1000
+    replication_key = "ChangedAfter"
+    rep_key_field = "ChangedAfter"
 
     def get_child_context(self, record, context) -> dict:
         return {"OrderId": record["Id"]}
+    
+    def post_process(self, row, context):
+        row = super().post_process(row, context)
+        #field created with current Amsterdam datetime to filter by rep_key
+        now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam')).strftime("%Y-%m-%dT%H:%M:%S.%f")
+        row["ChangedAfter"] = now
+        return row
 
 class OrderRowsStream(Logic4Stream):
     """Define custom stream."""

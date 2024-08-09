@@ -254,8 +254,8 @@ class OrdersBaseStream(Logic4Stream):
     """Define custom stream."""
 
     name = "orders_base"
-    replication_key = "ChangedAt"
-    rep_key_field = "LastActionFrom"
+    replication_key = "ChangedAfter"
+    rep_key_field = "ChangedAfter"
     from_to = False
 
     schema = th.PropertiesList(

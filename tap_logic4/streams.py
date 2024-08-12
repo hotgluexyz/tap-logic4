@@ -250,12 +250,12 @@ class StockStream(Logic4Stream):
     ).to_dict()
 
 
-class OrdersBaseStream(Logic4Stream):
+class TransactionBaseStream(Logic4Stream):
     """Define custom stream."""
 
-    name = "orders_base"
+    name = "transaction_base_stream"
     replication_key = "ChangedAt"
-    rep_key_field = "LastActionFrom"
+    rep_key_field = "ChangedAfter" # filter param provided by logic4
     from_to = False
 
     schema = th.PropertiesList(
@@ -432,13 +432,14 @@ class OrdersBaseStream(Logic4Stream):
 
     def post_process(self, row, context):
         row = super().post_process(row, context)
-        #field created with current Amsterdam datetime to filter by rep_key
+        # NOTE: while orders and invoices support a ChangedAfter filter, the tap needs a datetime value for the rep_key field 
+        # in each record, as logic4 doesn't return any updated time value we're synthetically creating ChangedAt to use as rep_key
         now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam')).strftime("%Y-%m-%dT%H:%M:%S.%f")
         row["ChangedAt"] = now
         return row
 
 
-class OrdersStream(OrdersBaseStream):
+class OrdersStream(TransactionBaseStream):
     """Define custom stream."""
 
     name = "orders"
@@ -514,7 +515,7 @@ class OrderRowsStream(Logic4Stream):
     def get_next_page_token(self, response, previous_token):
         return None
 
-class InvoicesStream(OrdersBaseStream):
+class InvoicesStream(TransactionBaseStream):
     """Define custom stream."""
 
     name = "invoices"

@@ -85,6 +85,7 @@ class Logic4Stream(RESTStream):
                 payload[self.rep_key_field] = start_date
         if next_page_token:
             payload["SkipRecords"] = next_page_token
+        self.logger.info(f"Making request to '{self.path}' with payload: {payload}")
         return payload
 
     def get_records(self, context: Optional[dict]):

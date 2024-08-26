@@ -207,9 +207,8 @@ class SupplierProductStream(Logic4Stream):
     """Define custom stream."""
 
     name = "supplier_products"
-    path = "/v1.1/Products/GetSuppliersForProduct"
+    path = "/v1.1/Products/GetSuppliersForProducts"
     primary_keys = ["CreditorProductCode"]
-    page_size = 10000
     
     schema = th.PropertiesList(
         th.Property("ProductId", th.IntegerType),

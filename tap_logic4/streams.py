@@ -209,6 +209,8 @@ class SupplierProductStream(Logic4Stream):
     name = "supplier_products"
     path = "/v1.1/Products/GetSuppliersForProduct"
     primary_keys = ["CreditorProductCode"]
+    page_size = 10000
+    
     schema = th.PropertiesList(
         th.Property("ProductId", th.IntegerType),
         th.Property("CreditorName", th.StringType),

@@ -195,12 +195,11 @@ class ProductsStream(Logic4Stream):
 
     def prepare_request_payload(self, context, next_page_token):
         payload = super().prepare_request_payload(context, next_page_token)
-        IsVisibleOnWebShop = self.config.get("IsVisibleOnWebShop")
-        if IsVisibleOnWebShop:
-            payload["IsVisibleOnWebShop"] = IsVisibleOnWebShop
-        IsVisibleInLogic4 = self.config.get("IsVisibleInLogic4")
-        if IsVisibleInLogic4:
-            payload["IsVisibleInLogic4"] = IsVisibleInLogic4
+        if "IsVisibleOnWebShop" in self.config:
+            payload["IsVisibleOnWebShop"] = self.config["IsVisibleOnWebShop"]
+
+        if "IsVisibleInLogic4" in self.config:
+            payload["IsVisibleInLogic4"] = self.config["IsVisibleInLogic4"]
         return payload
 
     def get_child_context(self, record: dict, context) -> dict:

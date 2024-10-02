@@ -195,10 +195,10 @@ class ProductsStream(Logic4Stream):
     ).to_dict()
     
     is_visible_pairs = [
-        {"IsVisibleOnWebShop": True, "IsVisibleInLogic4": True},
         {"IsVisibleOnWebShop": False, "IsVisibleInLogic4": True},
-        {"IsVisibleOnWebShop": True, "IsVisibleInLogic4": False},
         {"IsVisibleOnWebShop": False, "IsVisibleInLogic4": False},
+        {"IsVisibleOnWebShop": True, "IsVisibleInLogic4": True},
+        {"IsVisibleOnWebShop": True, "IsVisibleInLogic4": False},
     ]
     is_visible_current_pair = None
     
@@ -206,7 +206,7 @@ class ProductsStream(Logic4Stream):
         payload = super().prepare_request_payload(context, None)
         if next_page_token and next_page_token.get("counter"):
             payload["SkipRecords"] = next_page_token.get("counter")
-        if self.is_visible_pairs:
+        if self.is_visible_pairs and next_page_token and next_page_token.get("counter") == 0:
             self.is_visible_current_pair = self.is_visible_pairs.pop()
         else:
             self.is_visible_current_pair = None

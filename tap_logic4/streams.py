@@ -206,7 +206,8 @@ class ProductsStream(Logic4Stream):
         payload = super().prepare_request_payload(context, None)
         if next_page_token and next_page_token.get("counter"):
             payload["SkipRecords"] = next_page_token.get("counter")
-        if self.is_visible_pairs and next_page_token and next_page_token.get("counter") == 0:
+        if (self.is_visible_pairs and next_page_token and next_page_token.get("counter") == 0) or \
+            (len(self.is_visible_pairs) == 4):  # if is the first attempt
             self.is_visible_current_pair = self.is_visible_pairs.pop()
         else:
             self.is_visible_current_pair = None

@@ -1,6 +1,5 @@
 """Stream type classes for tap-logic4."""
 
-from typing import Optional
 from singer_sdk import typing as th
 
 from tap_logic4.client import Logic4Stream
@@ -191,20 +190,57 @@ class ProductsStream(Logic4Stream):
         th.Property("VendorCode", th.StringType),
         th.Property("ProductTemplateId", th.IntegerType),
         th.Property("ProductTemplateName", th.StringType),
+        th.Property("IsVisibleOnWebShop", th.BooleanType),
+        th.Property("IsVisibleInLogic4", th.BooleanType),
     ).to_dict()
-
+    
+    # we need to go over each pair of IsVisibleOnWebShop and IsVisibleInLogic4
+    is_visible_pairs = [
+        {"IsVisibleOnWebShop": True, "IsVisibleInLogic4": True},
+        {"IsVisibleOnWebShop": False, "IsVisibleInLogic4": True},
+        {"IsVisibleOnWebShop": True, "IsVisibleInLogic4": False},
+        {"IsVisibleOnWebShop": False, "IsVisibleInLogic4": False},
+    ]
+    is_visible_current_pair = None
+    
     def prepare_request_payload(self, context, next_page_token):
-        payload = super().prepare_request_payload(context, next_page_token)
-        if "IsVisibleOnWebShop" in self.config:
-            payload["IsVisibleOnWebShop"] = self.config["IsVisibleOnWebShop"]
-
-        if "IsVisibleInLogic4" in self.config:
-            payload["IsVisibleInLogic4"] = self.config["IsVisibleInLogic4"]
+        payload = super().prepare_request_payload(context, None)
+        if next_page_token and next_page_token.get("counter"):
+            payload["SkipRecords"] = next_page_token.get("counter")
+        
+        # we need to change the pairs if is the first attempt or the response doesn't have any record (counter=0)
+        if (len(self.is_visible_pairs) == 4) or (next_page_token and next_page_token.get("counter") == 0):
+            if self.is_visible_pairs:
+                self.is_visible_current_pair = self.is_visible_pairs.pop()
+            else:
+                self.is_visible_current_pair = None
+        if self.is_visible_current_pair:
+            payload.update(self.is_visible_current_pair)
+            context.update(self.is_visible_current_pair)
         return payload
 
     def get_child_context(self, record: dict, context) -> dict:
         return {"ProductId": record["ProductId"]}
-
+    
+    def get_next_page_token(self, response, previous_token):
+        counter = response.json().get("RecordsCounter")
+        if counter == 0 and len(self.is_visible_pairs) == 0:
+            return None  # this mean we go over all pages through all pairs
+        
+        next_page_token = {"counter": 0}
+        if counter:
+            prev_token = previous_token.get("counter", 0) if previous_token else 0
+            next_page_token["counter"] = prev_token + counter
+        if self.is_visible_current_pair:
+            next_page_token.update(self.is_visible_current_pair)
+        
+        return next_page_token
+    
+    def post_process(self, row, context):
+        row = super().post_process(row, context)
+        row.update(context)
+        return row
+    
 class SupplierProductBulkStream(Logic4Stream):
     """Define custom stream."""
 

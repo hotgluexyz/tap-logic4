@@ -92,9 +92,10 @@ class Logic4Stream(RESTStream):
         return payload
 
     def get_records(self, context: Optional[dict]):
-        sync_invoices = self.config.get("sync_invoices")
+        sync_invoices = self.config.get("sync_invoices", True)
+        sync_sales_orders = self.config.get("sync_sales_orders", True)
 
-        if self.name == "invoices" and not sync_invoices:
+        if (self.name == "invoices" and not sync_invoices) or (self.name == "orders" and not sync_sales_orders):
             pass
         else:
             for record in self.request_records(context):
@@ -102,6 +103,7 @@ class Logic4Stream(RESTStream):
                 if transformed_record is None:
                     continue
                 yield transformed_record
+    
     
     def _write_state_message(self) -> None:
         """Write out a STATE message with the latest state."""

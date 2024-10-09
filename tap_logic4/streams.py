@@ -542,6 +542,7 @@ class InvoicesStream(TransactionBaseStream):
     name = "invoices"
     path = "/v1.2/Orders/GetInvoices"
     primary_keys = ["Id"]
+    page_size = 1000
 
 
 class BuyOrdersStream(Logic4Stream):

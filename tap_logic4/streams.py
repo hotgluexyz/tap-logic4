@@ -544,6 +544,74 @@ class InvoicesStream(TransactionBaseStream):
     primary_keys = ["Id"]
     page_size = 1000
 
+    def get_child_context(self, record, context) -> dict:
+        return {"InvoiceId": record["Id"]}
+
+class InvoiceRowsStream(Logic4Stream):
+    """Define custom stream."""
+
+    name = "invoice_rows"
+    path = "/v1/Orders/GetInvoiceRows"
+    primary_keys = ["Id"]
+    parent_stream_type = InvoicesStream
+    schema = th.PropertiesList(
+        th.Property("SerialNumbers", th.ArrayType(th.StringType)),
+        th.Property("ExpectedNextQtyOnDelivery", th.NumberType),
+        th.Property("DiscountPercent", th.NumberType),
+        th.Property("QtyReserved", th.NumberType),
+        th.Property("InclPrice", th.NumberType),
+        th.Property("InternalNotes", th.StringType),
+        th.Property("IsAssemblyChild", th.BooleanType),
+        th.Property("Id", th.IntegerType),
+        th.Property("Description", th.StringType),
+        th.Property("Description2", th.StringType),
+        th.Property("ProductId", th.IntegerType),
+        th.Property("Qty", th.NumberType),
+        th.Property("BuyPrice", th.NumberType),
+        th.Property("GrossPrice", th.NumberType),
+        th.Property("NettPrice", th.NumberType),
+        th.Property("QtyDeliverd", th.NumberType),
+        th.Property("QtyDeliverd_NotInvoiced", th.NumberType),
+        th.Property("ProductCode", th.StringType),
+        th.Property("ProductBarcode1", th.StringType),
+        th.Property("VATPercentage", th.NumberType),
+        th.Property("Notes", th.StringType),
+        th.Property("DebtorId", th.IntegerType),
+        th.Property("OrderId", th.IntegerType),
+        th.Property("WarehouseId", th.NumberType),
+        th.Property("Commission", th.StringType),
+        th.Property("DeliveryOptionId", th.IntegerType),
+        th.Property("VatCodeId", th.IntegerType),
+        th.Property("VatCodeIdOverrule", th.NumberType),
+        th.Property("FreeValue1", th.StringType),
+        th.Property("FreeValue2", th.StringType),
+        th.Property("FreeValue3", th.StringType),
+        th.Property("FreeValue4", th.StringType),
+        th.Property("FreeValue5", th.StringType),
+        th.Property("ExpectedNextDelivery", th.DateTimeType),
+        th.Property(
+            "ExternalValue",
+            th.ObjectType(
+                th.Property("TypeId", th.IntegerType),
+                th.Property("Value", th.StringType),
+            ),
+        ),
+        th.Property("AgreedDeliveryDate", th.DateTimeType),
+        th.Property("Type1Id", th.IntegerType),
+        th.Property("Type2Id", th.IntegerType),
+        th.Property("Type3Id", th.IntegerType),
+        th.Property("Type4Id", th.IntegerType),
+        th.Property("Type5Id", th.IntegerType),
+    ).to_dict()
+
+    def prepare_request_payload(self, context, next_page_token):
+        payload = super().prepare_request_payload(context, next_page_token)
+        payload["InvoiceId"] = context["InvoiceId"]
+        return payload
+    
+    def get_next_page_token(self, response, previous_token):
+        return None
+
 
 class BuyOrdersStream(Logic4Stream):
     """Define custom stream."""

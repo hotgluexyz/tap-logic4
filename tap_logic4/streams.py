@@ -225,7 +225,7 @@ class ProductsStream(Logic4Stream):
     def get_next_page_token(self, response, previous_token):
         counter = response.json().get("RecordsCounter")
         if counter == 0 and len(self.is_visible_pairs) == 0:
-            return None  # this mean we go over all pages through all pairs
+            return None  # this means we go through all the pages through all the pairs
         
         next_page_token = {"counter": 0}
         if counter:
@@ -241,6 +241,12 @@ class ProductsStream(Logic4Stream):
         row.update(context)
         return row
     
+    def _get_state_partition_context(self, context):
+        if context == self.is_visible_current_pair:
+            return None
+        return super()._get_state_partition_context(context)
+
+
 class SupplierProductBulkStream(Logic4Stream):
     """Define custom stream."""
 
@@ -259,7 +265,7 @@ class SupplierProductBulkStream(Logic4Stream):
                 th.Property("Key", th.IntegerType),
                 th.Property("Value", th.NumberType),
             )
-        )),      
+        )),
     ).to_dict()
 
 class SupplierProductStream(Logic4Stream):

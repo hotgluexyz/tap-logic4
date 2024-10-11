@@ -92,6 +92,8 @@ class Logic4Stream(RESTStream):
         return payload
 
     def get_records(self, context: Optional[dict]):
+        if context is None:
+            context = {}
         sync_invoices = self.config.get("sync_invoices")
         sync_sales_orders = self.config.get("sync_sales_orders", True)
 

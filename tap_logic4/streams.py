@@ -587,7 +587,7 @@ class InvoicesStream(TransactionBaseStream):
     page_size = 1000
 
     def get_child_context(self, record, context) -> dict:
-        return {"InvoiceId": record["Id"]}
+        return {"OrderId": record["Id"]}
 
 class InvoiceRowsStream(Logic4Stream):
     """Define custom stream."""
@@ -648,7 +648,7 @@ class InvoiceRowsStream(Logic4Stream):
 
     def prepare_request_payload(self, context, next_page_token):
         payload = super().prepare_request_payload(context, next_page_token)
-        payload["InvoiceId"] = context["InvoiceId"]
+        payload["OrderId"] = context["InvoiceId"]
         return payload
     
     def get_next_page_token(self, response, previous_token):

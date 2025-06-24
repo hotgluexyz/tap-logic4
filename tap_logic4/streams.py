@@ -5,6 +5,7 @@ from singer_sdk import typing as th
 from tap_logic4.client import Logic4Stream
 import datetime 
 import pytz
+from datetime import timedelta
 
 address_type = th.ObjectType(
     th.Property(
@@ -727,6 +728,74 @@ class BuyOrdersRowsStream(Logic4Stream):
         return context["OrderId"]
     
     def get_next_page_token(self, response, previous_token):
+        return None
+
+
+class BuyOrderDeliveriesStream(Logic4Stream):
+    """Define custom stream for buy order deliveries."""
+
+    name = "buy_order_deliveries"
+    path = "/v1/BuyOrderDeliveries/GetBuyOrderDeliveries"
+    primary_keys = ["BuyOrderDeliveryId"]
+    replication_key = "DateTimeCreated"
+    rep_key_field = "CreationDateFrom"
+    page_size = 1000
+
+    schema = th.PropertiesList(
+        th.Property("BuyOrderDeliveryId", th.IntegerType),
+        th.Property("DateTimeCreated", th.DateTimeType),
+        th.Property("DateTimeProcessed", th.DateTimeType),
+        th.Property("StatusId", th.IntegerType),
+        th.Property("TypeId", th.IntegerType),
+        th.Property("SupplierId", th.IntegerType),
+        th.Property("BuyOrderId", th.IntegerType),
+        th.Property("Remarks", th.StringType),
+        th.Property("Description", th.StringType),
+        th.Property("BranchId", th.IntegerType),
+        th.Property("PickingListNumber", th.StringType),
+        th.Property("Rows", th.ArrayType(
+            th.ObjectType(
+                th.Property("BuyPrice", th.NumberType),
+                th.Property("Id", th.IntegerType),
+                th.Property("ProductCode", th.StringType),
+                th.Property("VendorCode", th.StringType),
+                th.Property("ProductCodeSupplier", th.StringType),
+                th.Property("BuyOrderRowId", th.IntegerType),
+                th.Property("DebtorName", th.StringType),
+                th.Property("OrderId", th.IntegerType),
+                th.Property("ProductId", th.IntegerType),
+                th.Property("Qty_Delivered", th.NumberType),
+                th.Property("Remarks", th.StringType),
+                th.Property("StockLocationId", th.IntegerType),
+                th.Property("AmountOfLabelsToPrint", th.IntegerType),
+            )
+        )),
+    ).to_dict()
+
+    def prepare_request_payload(self, context, next_page_token):
+        #NOTE: Logic4 uses Amsterdam timezone
+        start_date = self.get_starting_time(context)
+        if self.stream_state.get("replication_key_value"):
+            start_date = start_date + timedelta(seconds=1)
+        start_date = (
+            start_date.strftime("%Y-%m-%dT%H:%M:%SZ") if start_date else start_date
+        )
+        payload = {}
+        payload["Take"] = self.page_size
+        if start_date:
+            payload[self.rep_key_field] = start_date
+        if next_page_token:
+            payload["Skip"] = next_page_token
+        self.logger.info(f"Making request to '{self.path}' with payload: {payload}")
+        return payload
+
+    def get_next_page_token(self, response, previous_token):
+        """Return a token for identifying next page or None if no more pages."""
+        counter = response.json().get("RecordsCounter")
+        if counter:
+            previous_token = previous_token or 0
+            next_page_token = previous_token + counter
+            return next_page_token
         return None
 
 

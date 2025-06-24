@@ -8,6 +8,7 @@ from singer_sdk import typing as th
 from tap_logic4.streams import (
     BuyOrdersRowsStream,
     BuyOrdersStream,
+    BuyOrderDeliveriesStream,
     InvoicesStream,
     InvoiceRowsStream,
     OrderRowsStream,
@@ -28,6 +29,7 @@ STREAM_TYPES = [
     InvoiceRowsStream,
     BuyOrdersStream,
     BuyOrdersRowsStream,
+    BuyOrderDeliveriesStream,
     SuppliersStream,
     SupplierProductStream,
     SupplierProductBulkStream

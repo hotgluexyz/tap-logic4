@@ -699,7 +699,7 @@ class BuyOrdersRowsStream(Logic4Stream):
     """Define custom stream."""
 
     name = "buy_orders_rows"
-    path = "/v1/BuyOrders/GetBuyOrderRows"
+    path = "/v1/BuyOrders/GetBuyOrderRowsByFilter"
     primary_keys = ["BuyOrderRowId"]
     parent_stream_type = BuyOrdersStream
 
@@ -725,7 +725,7 @@ class BuyOrdersRowsStream(Logic4Stream):
     ).to_dict()
 
     def prepare_request_payload(self, context, next_page_token):
-        return context["OrderId"]
+        return {"BuyOrderId": context["OrderId"]}
     
     def get_next_page_token(self, response, previous_token):
         return None
